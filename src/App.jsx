@@ -5,8 +5,10 @@ import Meme from "./components/Meme";
 export default function App() {
   return (
     <>
-      <Header></Header>
-      <Meme></Meme>
+      <div>
+        <Header></Header>
+        <Meme></Meme>
+      </div>
     </>
   );
 }
