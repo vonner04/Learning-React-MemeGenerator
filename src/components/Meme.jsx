@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import memesData from "../memesData.js";
+import Sidebar from "./Sidebar.jsx";
 
 export default function Meme() {
   const [meme, setMeme] = useState({
@@ -16,16 +16,15 @@ export default function Meme() {
     async function getMemes() {
       const res = await fetch("https://api.imgflip.com/get_memes");
       const data = await res.json();
-      setAllMemes(data.data.memes);
+      setAllMemeImages(data.data.memes);
     }
     getMemes();
   }, []);
 
   //Update meme image when generate button is clicked
   function getMemeImage() {
-    const memesArray = memesData.data.memes;
-    const randomNumber = Math.floor(Math.random() * memesArray.length);
-    const url = memesArray[randomNumber].url;
+    const randomNumber = Math.floor(Math.random() * allMemeImages.length);
+    const url = allMemeImages[randomNumber].url;
     setMeme((prevMeme) => {
       return {
         ...prevMeme,
@@ -34,7 +33,7 @@ export default function Meme() {
     });
   }
 
-  //Update text when input is changed
+  //Update bottom or top text when input is changed
   function handleChange(event) {
     const { name, value } = event.target;
     setMeme((prevMeme) => {
