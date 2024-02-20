@@ -12,6 +12,14 @@ export default function Meme() {
   const [allMemeImages, setAllMemeImages] = useState([]);
 
   //Store memes fetched from API
+  useEffect(() => {
+    async function getMemes() {
+      const res = await fetch("https://api.imgflip.com/get_memes");
+      const data = await res.json();
+      setAllMemes(data.data.memes);
+    }
+    getMemes();
+  }, []);
 
   //Update meme image when generate button is clicked
   function getMemeImage() {
