@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import memesData from "../memesData.js";
 
 export default function Meme() {
@@ -9,6 +9,11 @@ export default function Meme() {
     memeImage: "",
   });
 
+  const [allMemeImages, setAllMemeImages] = useState([]);
+
+  //Store memes fetched from API
+
+  //Update meme image when generate button is clicked
   function getMemeImage() {
     const memesArray = memesData.data.memes;
     const randomNumber = Math.floor(Math.random() * memesArray.length);
@@ -21,6 +26,7 @@ export default function Meme() {
     });
   }
 
+  //Update text when input is changed
   function handleChange(event) {
     const { name, value } = event.target;
     setMeme((prevMeme) => {
