@@ -68,13 +68,13 @@ main{
 }
 
 .meme{
+  display: flex;
   position: relative;
+  justify-content: center;
   
 }
 
 .meme--image{
-  display: block;
-  margin:auto;
   padding-top: 20px;
   width: 40%;
 }
