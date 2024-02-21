@@ -77,6 +77,7 @@ main{
 .meme--image{
   padding-top: 20px;
   width: 40%;
+ 
 }
 
 .meme--text {
@@ -111,4 +112,14 @@ main{
   top: 0;
   padding-top: 20px;
 }
-  
+
+.meme--sidebar{
+}
+
+.sidebar--tools{
+  padding-top: 20px;
+  background-color: rgb(255, 107, 132);
+}
+
+.sidebar--image{
+}

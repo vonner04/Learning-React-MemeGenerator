@@ -68,13 +68,14 @@ export default function Meme() {
         </button>
       </div>
       <div className="meme">
-        <img src={meme.memeImage} className="meme--image" />
         {meme.memeImage && (
           <>
+            <img src={meme.memeImage} className="meme--image" />
             <h2 className="meme--text top">{meme.topText}</h2>
             <h2 className="meme--text bottom">{meme.bottomText}</h2>
           </>
         )}
+        <Sidebar className="meme--sidebar" memeImage={meme.memeImage} />
       </div>
     </main>
   );
