@@ -1,10 +1,11 @@
-export default function Sidebar({ memeImage }) {
+export default function Sidebar() {
   return (
-    <div className="sidebar--tools" style={memeImage ? { width: 0 } : {}}>
+    <div className="sidebar--tools">
       <img
         className="sidebar--imageupload"
-        src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698977-icon-130-cloud-upload-512.png"
+        src="https://w7.pngwing.com/pngs/542/552/png-transparent-font-awesome-upload-font-cloud-miscellaneous-cloud-logo.png"
       />
+      <p>Upload Your Own Image</p>
     </div>
   );
 }

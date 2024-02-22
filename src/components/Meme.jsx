@@ -75,8 +75,8 @@ export default function Meme() {
             <h2 className="meme--text bottom">{meme.bottomText}</h2>
           </>
         )}
-        <Sidebar className="meme--sidebar" memeImage={meme.memeImage} />
       </div>
+      <Sidebar></Sidebar>
     </main>
   );
 }
