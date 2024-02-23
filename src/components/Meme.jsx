@@ -22,15 +22,25 @@ export default function Meme() {
   }, []);
 
   //Update meme image when generate button is clicked
-  function getMemeImage() {
-    const randomNumber = Math.floor(Math.random() * allMemeImages.length);
-    const url = allMemeImages[randomNumber].url;
-    setMeme((prevMeme) => {
-      return {
-        ...prevMeme,
-        memeImage: url,
-      };
-    });
+  function getMemeImage(imageUrl) {
+    console.log(imageUrl.data);
+    if (imageUrl.data) {
+      setMeme((prevMeme) => {
+        return {
+          ...prevMeme,
+          memeImage: imageUrl,
+        };
+      });
+    } else {
+      const randomNumber = Math.floor(Math.random() * allMemeImages.length);
+      const url = allMemeImages[randomNumber].url;
+      setMeme((prevMeme) => {
+        return {
+          ...prevMeme,
+          memeImage: url,
+        };
+      });
+    }
   }
 
   //Update bottom or top text when input is changed
@@ -76,7 +86,7 @@ export default function Meme() {
           </>
         )}
       </div>
-      <Sidebar></Sidebar>
+      <Sidebar onImageUpload={getMemeImage} />
     </main>
   );
 }
