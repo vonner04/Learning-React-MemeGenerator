@@ -23,14 +23,14 @@ export default function Meme() {
 
   //Update meme image when generate button is clicked
   function getMemeImage(imageUrl) {
-    console.log(imageUrl.data);
-    if (imageUrl.data) {
+    if (typeof imageUrl === "string" && imageUrl.startsWith("data:image")) {
       setMeme((prevMeme) => {
         return {
           ...prevMeme,
           memeImage: imageUrl,
         };
       });
+      return;
     } else {
       const randomNumber = Math.floor(Math.random() * allMemeImages.length);
       const url = allMemeImages[randomNumber].url;
