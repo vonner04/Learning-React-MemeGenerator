@@ -23,6 +23,11 @@ export default function Meme() {
 
   //Update meme image when generate button is clicked
   function getMemeImage(imageUrl) {
+    //Handle file uploads that aren't image.
+    if (typeof imageUrl === "string" && !imageUrl.startsWith("data:image"))
+      return;
+
+    //Handle file upload that is an image
     if (typeof imageUrl === "string" && imageUrl.startsWith("data:image")) {
       setMeme((prevMeme) => {
         return {
@@ -32,6 +37,7 @@ export default function Meme() {
       });
       return;
     } else {
+      //Handle API meme image
       const randomNumber = Math.floor(Math.random() * allMemeImages.length);
       const url = allMemeImages[randomNumber].url;
       setMeme((prevMeme) => {
